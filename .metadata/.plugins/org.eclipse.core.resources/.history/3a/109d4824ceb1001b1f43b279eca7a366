@@ -1,0 +1,12 @@
+package application;
+
+import java.io.File;
+
+public class MainProgram {
+
+	public static void main(String[] args) {
+		File file = new File("c:\\Repositorios\\Mano.txt");
+		file.deleteOnExit();
+	}
+
+}
