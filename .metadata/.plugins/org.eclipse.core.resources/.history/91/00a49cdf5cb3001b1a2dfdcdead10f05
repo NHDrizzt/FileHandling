@@ -24,10 +24,10 @@ public class MainProgram {
 					bw.write("\n" + line);
 					bw.newLine();
 				}
-				String readFile2  = br.readLine();
-				while (readFile2 != null) {
-					System.out.println(readFile2);
-					readFile2 = br.readLine();
+				BufferedReader bt = new BufferedReader(new FileReader(file));
+				while (readFile != null) {
+					readFile = bt.readLine();
+					System.out.println(readFile);
 				}
 				
 			} catch (Error e) {

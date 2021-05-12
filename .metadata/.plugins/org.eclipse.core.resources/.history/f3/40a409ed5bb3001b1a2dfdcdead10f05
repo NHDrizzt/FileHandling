@@ -24,12 +24,8 @@ public class MainProgram {
 					bw.write("\n" + line);
 					bw.newLine();
 				}
-				String readFile2  = br.readLine();
-				while (readFile2 != null) {
-					System.out.println(readFile2);
-					readFile2 = br.readLine();
-				}
-				
+				readFile = br.readLine();
+				System.out.println(readFile);
 			} catch (Error e) {
 				e.printStackTrace();
 			}

@@ -26,8 +26,8 @@ public class MainProgram {
 				}
 				String readFile2  = br.readLine();
 				while (readFile2 != null) {
-					System.out.println(readFile2);
 					readFile2 = br.readLine();
+					System.out.println(readFile2);
 				}
 				
 			} catch (Error e) {

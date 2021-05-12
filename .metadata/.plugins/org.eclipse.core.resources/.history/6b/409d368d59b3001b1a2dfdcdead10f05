@@ -18,22 +18,23 @@ public class MainProgram {
 
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String readFile = br.readLine();
-			System.out.println(readFile);
+			while (readFile != null) {
+				System.out.println(readFile);
+				readFile = br.readLine();
+			}
 			try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
 				for (String line : lines) {
-					bw.write("\n" + line);
+					bw.write(line);
 					bw.newLine();
 				}
-				String readFile2  = br.readLine();
-				while (readFile2 != null) {
-					System.out.println(readFile2);
-					readFile2 = br.readLine();
+				while (readFile != null) {
+					System.out.println(readFile);
+					readFile = br.readLine();
 				}
-				
 			} catch (Error e) {
 				e.printStackTrace();
 			}
-
+			
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
