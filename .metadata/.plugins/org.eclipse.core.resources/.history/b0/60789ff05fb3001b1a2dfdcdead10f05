@@ -31,11 +31,8 @@ public class MainProgram {
 		}
 		
 		System.out.println("Creating File: ");
-		boolean newFile = new File(strPath+"\\newfile.txt").createNewFile();
-		System.out.println(newFile);
-		System.out.println("Creating Folder: ");
-		boolean newFolder = new File(strPath+"\\newfile").mkdir();
-		System.out.println(newFolder);
+		boolean a = new File(strPath+"\\newfile.txt").createNewFile();
+		System.out.println(a);
 		sc.close();
 	}
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class MainProgram {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		Scanner sc= new Scanner(System.in);
 		
@@ -30,12 +30,8 @@ public class MainProgram {
 			System.out.println(f);
 		}
 		
-		System.out.println("Creating File: ");
-		boolean newFile = new File(strPath+"\\newfile.txt").createNewFile();
-		System.out.println(newFile);
-		System.out.println("Creating Folder: ");
-		boolean newFolder = new File(strPath+"\\newfile").mkdir();
-		System.out.println(newFolder);
+		
+		
 		sc.close();
 	}
 
