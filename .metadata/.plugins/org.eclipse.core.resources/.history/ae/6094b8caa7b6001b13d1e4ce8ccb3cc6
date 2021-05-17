@@ -41,7 +41,7 @@ public class MainProgram {
 			}
 			try (BufferedWriter bw = new BufferedWriter(new FileWriter(strPathTarget, true))) {
 				for(String line : listOfOutputLines) {
-					bw.write(line);
+					bw.write(line + ",");
 					bw.newLine();
 				}
 				

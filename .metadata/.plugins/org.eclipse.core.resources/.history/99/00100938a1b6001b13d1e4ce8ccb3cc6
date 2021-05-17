@@ -1,0 +1,36 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class MainProgram {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws IOException {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Folder path: ");
+		String strPath = "c:\\Repositorios\\Filing\\out.csv";
+
+		File f = new File(strPath);
+		System.out.println(f.getParent());
+		try {
+			f.getParentFile().mkdirs();
+			boolean createFile = f.createNewFile();
+			if (!createFile) {
+				throw new Exception();
+				
+			}
+		} catch (Exception e) {
+			System.out.println("File already exists");
+		}
+		sc.close();
+	}
+
+}

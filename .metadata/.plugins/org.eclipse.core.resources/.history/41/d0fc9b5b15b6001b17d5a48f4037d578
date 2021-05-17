@@ -1,0 +1,42 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class MainProgram {
+
+	public static void main(String[] args) throws IOException {
+
+		Scanner sc= new Scanner(System.in);
+		
+		System.out.println("Folder path: ");
+		String strPath = sc.nextLine();
+		
+		File path = new File(strPath);
+		
+		File[] folders = path.listFiles(File::isDirectory);
+		System.out.println("FOLDER(S): ");
+		for(File folder : folders) {
+			System.out.println(folder);
+		}
+		File[] file = path.listFiles(File::isFile);
+		System.out.println("File(S): ");
+		for(File f : file) {
+			System.out.println(f);
+		}
+		
+		System.out.println("Creating File: ");
+		boolean newFile = new File(strPath+"\\newfile.txt").createNewFile();
+		System.out.println(newFile);
+		System.out.println("Creating Folder: ");
+		boolean newFolder = new File(strPath+"\\newfile").mkdir();
+		System.out.println(newFolder);
+		sc.close();
+	}
+
+}

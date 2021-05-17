@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainProgram {
@@ -15,8 +14,6 @@ public class MainProgram {
 
 		Scanner sc = new Scanner(System.in);
 
-		String[] parts;
-		ArrayList<String> listOfOutputLines = new ArrayList<>();
 		System.out.println("Folder path: ");
 
 		String strPathTarget = "c:\\Repositorios\\out\\summary.csv";
@@ -33,20 +30,22 @@ public class MainProgram {
 		try (BufferedReader br = new BufferedReader(new FileReader(strPathSource))) {
 			String readFile = br.readLine();
 			while (readFile != null) {
-				parts = readFile.split(",");
+				String[] parts = readFile.split(",");
 				double res = Double.parseDouble(parts[1]) * Integer.parseInt(parts[2]);
-				String agroup = parts[0] +","+ String.valueOf(res);
-				listOfOutputLines.add(agroup);
-				readFile = br.readLine();
-			}
-			try (BufferedWriter bw = new BufferedWriter(new FileWriter(strPathTarget, true))) {
-				for(String line : listOfOutputLines) {
-					bw.write(line);
-					bw.newLine();
+
+				try (BufferedWriter bw = new BufferedWriter(new FileWriter(strPathTarget, true))) {
+					for (int i = 0; i < parts.length; i++) {
+						String[] lines = new String[] { parts[i], String.valueOf(res) };
+						for (String line : lines) {
+							bw.write(line);
+							bw.newLine();
+						}
+					}
+				} catch (Error e) {
+					e.printStackTrace();
 				}
-				
-			} catch (Error e) {
-				e.printStackTrace();
+				System.out.println(readFile);
+				readFile = br.readLine();
 			}
 		} catch (Exception e) {
 			System.out.println("File already exists");
