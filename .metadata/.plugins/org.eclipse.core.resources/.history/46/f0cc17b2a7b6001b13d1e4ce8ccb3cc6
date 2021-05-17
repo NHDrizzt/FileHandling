@@ -35,15 +35,15 @@ public class MainProgram {
 			while (readFile != null) {
 				parts = readFile.split(",");
 				double res = Double.parseDouble(parts[1]) * Integer.parseInt(parts[2]);
-				String agroup = parts[0] +","+ String.valueOf(res);
+				String agroup = parts[0] + String.valueOf(res);
 				listOfOutputLines.add(agroup);
 				readFile = br.readLine();
 			}
+			for(String a : listOfOutputLines) {
+				System.out.println(a);
+			}
 			try (BufferedWriter bw = new BufferedWriter(new FileWriter(strPathTarget, true))) {
-				for(String line : listOfOutputLines) {
-					bw.write(line);
-					bw.newLine();
-				}
+				
 				
 			} catch (Error e) {
 				e.printStackTrace();
